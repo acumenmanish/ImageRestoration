@@ -24,3 +24,13 @@ if uploadFile is not None:
     st.write("Image Uploaded Successfully")
 else:
     st.write("Make sure you image is in JPG/PNG Format.")
+    
+    
+if st.button('Restore'):
+    if uploadFile is not None:
+     # Perform your Manupilations (In my Case applying Filters)
+     img = load_image(uploadFile)
+     st.image(img)
+     st.write("Image Restored Successfully")
+else:
+    st.write('Goodbye')
