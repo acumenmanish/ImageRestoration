@@ -1,6 +1,3 @@
-!pip install gradio
-!pip install requests
-
 from PIL import Image
 import numpy as np 
 import streamlit as st 
