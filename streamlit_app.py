@@ -61,4 +61,4 @@ iface = gr.Interface(fn = image_restored,
                             <p> Please wait while restoration of your image is happening.</p>
                         </div>'''
                     )
-iface.launch()
+#iface.launch()
