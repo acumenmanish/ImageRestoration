@@ -1,4 +1,3 @@
-
 from PIL import Image
 import numpy as np 
 import streamlit as st 
@@ -37,17 +36,22 @@ else:
     st.write('Goodbye')
 
 def image_restored(file_obj):
-    url = 'https://en.wiktionary.org/wiki/dog#/media/File:YellowLabradorLooking.jpg'
-    r = requests.get(url, allow_redirects=True)
-    open('dog.jpg', 'wb').write(r.content)
+    #here you can plug you AI model. This will enable the code to run
+    # the output will be path to your image that will be hosted on server
+    #once done pass that path in below url param
+    # i have used dummy path from a server to show the output
+    url = 'https://publish.purewow.net/wp-content/uploads/sites/2/2021/06/smallest-dog-breeds-toy-poodle.jpg?fit=728%2C524'
+    img = open('dog.jpg', 'wb')
+    img.write(requests.get(url).content)
+    img.close()
     return 'dog.jpg'
 
-examples = [
-    [os.path.abspath("short-pdf.pdf")],
-    [os.path.abspath("long-pdf.pdf")]
-]
+#examples = [
+#    [os.path.abspath("short-pdf.pdf")],
+#    [os.path.abspath("long-pdf.pdf")]
+#]
 
-iface = gr.Interface(fn = pdf_to_text, 
+iface = gr.Interface(fn = image_restored, 
                      inputs = 'image', 
                      outputs = 'image', 
                      title = 'Blurred image to restored image Application',
